@@ -1,0 +1,359 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #121212, #191414);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated gradient background */
+body:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(29, 185, 84, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 85% 85%, rgba(30, 215, 96, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(25, 20, 20, 0) 0%, rgba(25, 20, 20, 0.5) 100%);
+  z-index: -1;
+}
+
+#main {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+}
+
+.app-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.music-card {
+  background: rgba(40, 40, 40, 0.85) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 
+              0 1px 2px rgba(0, 0, 0, 0.2),
+              0 -1px 0 rgba(255, 255, 255, 0.05) inset !important;
+  margin-bottom: 24px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at top right, rgba(30, 215, 96, 0.1), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(29, 185, 84, 0.08), transparent 40%);
+  z-index: -1;
+}
+
+.music-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              0 -1px 0 rgba(255, 255, 255, 0.08) inset !important;
+}
+
+.main-title {
+  font-weight: 800 !important;
+  color: white !important;
+  text-shadow: 0 2px 10px rgba(29, 185, 84, 0.3) !important;
+  margin-bottom: 30px !important;
+  letter-spacing: -1px !important;
+  background: linear-gradient(to right, #fff, #1DB954, #fff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 6s linear infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+.music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+.control-button {
+  margin: 0 10px !important;
+  background: #333 !important;
+  color: white !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: unset !important;
+}
+
+.control-button:hover {
+  background: #444 !important;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.control-button:active {
+  transform: scale(0.95);
+}
+
+.play-button {
+  background: #1DB954 !important; /* Spotify green */
+}
+
+.play-button:hover {
+  background: #1ED760 !important; /* Lighter Spotify green */
+}
+
+.pause-button {
+  background: #E91E63 !important; /* Pink */
+}
+
+.pause-button:hover {
+  background: #EC407A !important; /* Lighter pink */
+}
+
+.skip-button {
+  background: #FF9800 !important; /* Orange */
+}
+
+.skip-button:hover {
+  background: #FFA726 !important; /* Lighter orange */
+}
+
+.room-code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+  margin: 10px 0;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+              0 0 0 1px rgba(255, 255, 255, 0.05),
+              0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  letter-spacing: 1px;
+  color: #1DB954; /* Spotify green */
+}
+
+.progress-bar {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  overflow: hidden !important;
+}
+
+.progress-bar .MuiLinearProgress-barColorPrimary {
+  background: linear-gradient(to right, #1DB954, #1ED760) !important; /* Spotify green gradient */
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.album-cover {
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform: perspective(800px) rotateY(0deg);
+}
+
+.album-cover:hover {
+  transform: perspective(800px) rotateY(5deg) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.song-info {
+  padding: 0 20px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+.loading-pulse {
+  animation: pulse 1.5s infinite;
+  color: #1DB954 !important; /* Spotify green */
+}
+
+.action-button {
+  margin: 8px !important;
+  padding: 12px 28px !important;
+  background: linear-gradient(45deg, #1DB954, #1ED760) !important;
+  color: white !important;
+  border-radius: 30px !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3) !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.action-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  z-index: -1;
+  transition: all 0.4s ease;
+  transform: translateY(100%);
+}
+
+.action-button:hover:before {
+  transform: translateY(0);
+}
+
+.action-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4) !important;
+}
+
+.action-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(29, 185, 84, 0.2) !important;
+}
+
+.join-button {
+  background: linear-gradient(45deg, #2196F3, #00BCD4) !important;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3) !important;
+}
+
+.join-button:hover {
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4) !important;
+}
+
+.join-button:active {
+  box-shadow: 0 2px 10px rgba(33, 150, 243, 0.2) !important;
+}
+
+.create-button {
+  background: linear-gradient(45deg, #1DB954, #1ED760) !important;
+}
+
+.leave-button {
+  background: linear-gradient(45deg, #FF5252, #FF1744) !important;
+  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.3) !important;
+}
+
+.leave-button:hover {
+  box-shadow: 0 6px 20px rgba(255, 82, 82, 0.4) !important;
+}
+
+.leave-button:active {
+  box-shadow: 0 2px 10px rgba(255, 82, 82, 0.2) !important;
+}
+
+/* Additional styles for improved visuals */
+.MuiSlider-root {
+  color: #1DB954 !important;
+}
+
+.MuiSlider-thumb {
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5) !important;
+}
+
+.MuiSlider-thumb:hover {
+  box-shadow: 0 0 15px rgba(29, 185, 84, 0.7) !important;
+}
+
+.MuiChip-root {
+  transition: all 0.3s ease !important;
+}
+
+.MuiChip-root:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .center {
+    width: 95%;
+  }
+  
+  .music-card {
+    padding: 15px !important;
+  }
+  
+  .album-cover {
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  .action-button {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .main-title {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Typography refinements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.5px;
+}
+
+.MuiTypography-colorTextSecondary {
+  color: rgba(255, 255, 255, 0.7) !important;
+}

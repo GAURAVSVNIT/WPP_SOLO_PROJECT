@@ -1,0 +1,21 @@
+{
+  "name": "wpp-solo",
+  "version": "1.0.0",
+  "description": "The code for Tech With Tim's \"Django & React Full Stack Web App Tutorial\" series.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techwithtim/Music-Controller-Web-App-Tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/techwithtim/Music-Controller-Web-App-Tutorial/issues"
+  },
+  "homepage": "https://github.com/techwithtim/Music-Controller-Web-App-Tutorial#readme"
+}
